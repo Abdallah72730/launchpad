@@ -365,6 +365,8 @@
             <input type="hidden" name="access_key" value="ca79f92b-8561-4907-ab69-b7430d29d488">
             <input type="hidden" name="subject" value="New LaunchPad Inquiry">
             <input type="hidden" name="from_name" value="LaunchPad Website">
+            <input type="hidden" name="redirect" value="https://web3forms.com/success">
+            <input type="checkbox" name="botcheck" style="display: none;">
             <div id="formMessage" style="margin-top: 1rem; text-align: center; font-weight: bold;"></div>
             <button type="submit" class="submit-button">Submit Inquiry</button>
         </form>
@@ -390,24 +392,37 @@
             submitButton.textContent = 'Sending...';
             formMessage.textContent = '';
             
+            // Convert FormData to JSON
+            const object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+            const json = JSON.stringify(object);
+            
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
+            .then(async response => {
+                const data = await response.json();
+                if (response.status === 200) {
                     formMessage.style.color = '#28a745';
                     formMessage.textContent = 'Thank you! We will contact you shortly.';
                     form.reset();
                 } else {
+                    console.log(data);
                     formMessage.style.color = '#dc3545';
-                    formMessage.textContent = 'Oops! Something went wrong. Please try again.';
+                    formMessage.textContent = data.message || 'Oops! Something went wrong. Please try again.';
                 }
             })
             .catch(error => {
+                console.log(error);
                 formMessage.style.color = '#dc3545';
-                formMessage.textContent = 'Error submitting form. Please try again.';
+                formMessage.textContent = 'Error submitting form. Please check your internet connection and try again.';
             })
             .finally(() => {
                 // Re-enable button
@@ -433,3 +448,4 @@
         });
     </script>
 </body>
+</html>
