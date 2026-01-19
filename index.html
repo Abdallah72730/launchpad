@@ -343,9 +343,9 @@
         </div>
     </section>
 
-     <section id="contact">
+    <section id="contact">
         <h2>Let's Grow Together</h2>
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" onsubmit="return handleFormSubmit(event)">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
@@ -376,10 +376,46 @@
     </footer>
 
     <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('Thank you for your interest! We will contact you shortly.');
-            event.target.reset();
+        // Handle form submission with Web3Forms
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const form = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('.submit-button');
+            
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            formMessage.textContent = '';
+            
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    formMessage.style.color = '#28a745';
+                    formMessage.textContent = 'Thank you! We will contact you shortly.';
+                    form.reset();
+                } else {
+                    formMessage.style.color = '#dc3545';
+                    formMessage.textContent = 'Oops! Something went wrong. Please try again.';
+                }
+            })
+            .catch(error => {
+                formMessage.style.color = '#dc3545';
+                formMessage.textContent = 'Error submitting form. Please try again.';
+            })
+            .finally(() => {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Inquiry';
+            });
+            
+            return false;
         }
 
         // Smooth scrolling for navigation links
@@ -397,4 +433,3 @@
         });
     </script>
 </body>
-</html>
