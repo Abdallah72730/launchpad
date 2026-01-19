@@ -345,7 +345,7 @@
 
     <section id="contact">
         <h2>Let's Grow Together</h2>
-        <form class="contact-form" id="contactForm" onsubmit="return handleFormSubmit(event)">
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
@@ -364,10 +364,7 @@
             </div>
             <input type="hidden" name="access_key" value="ca79f92b-8561-4907-ab69-b7430d29d488">
             <input type="hidden" name="subject" value="New LaunchPad Inquiry">
-            <input type="hidden" name="from_name" value="LaunchPad Website">
-            <input type="hidden" name="redirect" value="https://web3forms.com/success">
-            <input type="checkbox" name="botcheck" style="display: none;">
-            <div id="formMessage" style="margin-top: 1rem; text-align: center; font-weight: bold;"></div>
+            <input type="hidden" name="redirect" value="https://launchpad-7av0yohc-launchpads-projects-5de80122.vercel.app/#contact">
             <button type="submit" class="submit-button">Submit Inquiry</button>
         </form>
     </section>
@@ -378,61 +375,6 @@
     </footer>
 
     <script>
-        // Handle form submission with Web3Forms
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            
-            const form = document.getElementById('contactForm');
-            const formMessage = document.getElementById('formMessage');
-            const formData = new FormData(form);
-            const submitButton = form.querySelector('.submit-button');
-            
-            // Disable button and show loading state
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            formMessage.textContent = '';
-            
-            // Convert FormData to JSON
-            const object = {};
-            formData.forEach((value, key) => {
-                object[key] = value;
-            });
-            const json = JSON.stringify(object);
-            
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async response => {
-                const data = await response.json();
-                if (response.status === 200) {
-                    formMessage.style.color = '#28a745';
-                    formMessage.textContent = 'Thank you! We will contact you shortly.';
-                    form.reset();
-                } else {
-                    console.log(data);
-                    formMessage.style.color = '#dc3545';
-                    formMessage.textContent = data.message || 'Oops! Something went wrong. Please try again.';
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                formMessage.style.color = '#dc3545';
-                formMessage.textContent = 'Error submitting form. Please check your internet connection and try again.';
-            })
-            .finally(() => {
-                // Re-enable button
-                submitButton.disabled = false;
-                submitButton.textContent = 'Submit Inquiry';
-            });
-            
-            return false;
-        }
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
