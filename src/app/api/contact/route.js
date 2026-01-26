@@ -62,6 +62,9 @@ export async function POST(request) {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
+                // Adding User-Agent and Origin to look less like a bot
+                'User-Agent': 'LaunchPad-Server/1.0',
+                'Origin': 'https://wwwlaunchpad.com'
             },
             body: JSON.stringify(formData),
         });
