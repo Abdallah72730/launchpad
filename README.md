@@ -1,4 +1,4 @@
-# LaunchPad - Invest. Market. Grow.
+# LaunchPad - Invest.Market.Grow
 
 A professional, multi-page website for LaunchPad, a business investment and marketing company helping small household-based businesses in Hyderabad, India.
 
@@ -90,4 +90,4 @@ The contact form uses [Web3Forms](https://web3forms.com/) for email delivery. Th
 
 ## 📝 License
 
-© 2025 LaunchPad. All rights reserved.
+© 2026 LaunchPad. All rights reserved.
