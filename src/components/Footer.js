@@ -59,8 +59,8 @@ export default function Footer() {
                         <div className={styles.contactInfo}>
                             <div className={styles.contactItem}>
                                 <span className={styles.contactIcon}>📧</span>
-                                <a href="mailto:launchpadgrow@gmail.com" className={styles.contactLink}>
-                                    launchpadgrow@gmail.com
+                                <a href="mailto:launchpad@wwwlaunchpad.com" className={styles.contactLink}>
+                                    launchpad@wwwlaunchpad.com
                                 </a>
                             </div>
                             <div className={styles.contactItem}>
