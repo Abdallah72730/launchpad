@@ -8,6 +8,7 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
+import { EmailIcon, LocationIcon, ClockIcon, CheckIcon, AlertIcon } from '../../components/Icons';
 
 // Business types for dropdown
 const businessTypes = [
@@ -27,7 +28,7 @@ const businessTypes = [
 const faqs = [
     {
         question: 'How much funding can I get?',
-        answer: 'We offer flexible funding ranging from ₹50,000 to ₹10,00,000 depending on your business needs and growth potential.'
+        answer: 'We offer flexible funding ranging from ₹10,000 to ₹1,00,000 depending on your business needs and growth potential.'
     },
     {
         question: 'Do I need collateral?',
@@ -105,7 +106,7 @@ export default function ContactPage() {
             setStatus({
                 submitting: false,
                 submitted: false,
-                error: 'Network error. Please check your connection and try again.'
+                error: 'Network error: ' + error.message
             });
         }
     };
@@ -143,7 +144,9 @@ export default function ContactPage() {
 
                             {status.submitted ? (
                                 <div className={styles.successMessage}>
-                                    <span className={styles.successIcon}>✓</span>
+                                    <span className={styles.successIcon}>
+                                        <CheckIcon />
+                                    </span>
                                     <h3>Thank You!</h3>
                                     <p>Your message has been sent successfully. We'll get back to you within 24 hours.</p>
                                     <button
@@ -245,7 +248,9 @@ export default function ContactPage() {
 
                                     {status.error && (
                                         <div className={styles.errorMessage}>
-                                            <span className={styles.errorIcon}>!</span>
+                                            <span className={styles.errorIcon}>
+                                                <AlertIcon />
+                                            </span>
                                             {status.error}
                                         </div>
                                     )}
@@ -277,17 +282,21 @@ export default function ContactPage() {
                                 <h3 className={styles.infoTitle}>Contact Information</h3>
 
                                 <div className={styles.infoItem}>
-                                    <span className={styles.infoIcon}>📧</span>
+                                    <span className={styles.infoIcon}>
+                                        <EmailIcon />
+                                    </span>
                                     <div>
                                         <p className={styles.infoLabel}>Email</p>
-                                        <a href="mailto:launchpadgrow@gmail.com" className={styles.infoValue}>
-                                            launchpadgrow@gmail.com
+                                        <a href="mailto:launchpad@wwwlaunchpad.com" className={styles.infoValue}>
+                                            launchpad@wwwlaunchpad.com
                                         </a>
                                     </div>
                                 </div>
 
                                 <div className={styles.infoItem}>
-                                    <span className={styles.infoIcon}>📍</span>
+                                    <span className={styles.infoIcon}>
+                                        <LocationIcon />
+                                    </span>
                                     <div>
                                         <p className={styles.infoLabel}>Location</p>
                                         <p className={styles.infoValue}>Hyderabad, India</p>
@@ -295,7 +304,9 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className={styles.infoItem}>
-                                    <span className={styles.infoIcon}>⏰</span>
+                                    <span className={styles.infoIcon}>
+                                        <ClockIcon />
+                                    </span>
                                     <div>
                                         <p className={styles.infoLabel}>Response Time</p>
                                         <p className={styles.infoValue}>Within 24 hours</p>
@@ -307,7 +318,7 @@ export default function ContactPage() {
                                 <h3 className={styles.expectTitle}>What to Expect</h3>
                                 <ol className={styles.expectList}>
                                     <li>We'll review your inquiry within 24 hours</li>
-                                    <li>Schedule a free consultation call</li>
+                                    <li>Schedule a consultation call</li>
                                     <li>Discuss your goals and challenges</li>
                                     <li>Create a customized growth plan</li>
                                 </ol>

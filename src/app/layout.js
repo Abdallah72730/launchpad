@@ -10,7 +10,7 @@ import Footer from '@/components/Footer';
 // Metadata for SEO - optimized for Hyderabad market
 export const metadata = {
     title: {
-        default: 'LaunchPad - Invest. Market. Grow. | Hyderabad',
+        default: 'launchpad - invest.market.grow | Hyderabad',
         template: '%s | LaunchPad Hyderabad',
     },
     description: 'LaunchPad empowers small household businesses in Hyderabad with strategic investment and marketing solutions. Transform your home business into a thriving enterprise.',
@@ -25,7 +25,7 @@ export const metadata = {
     },
     metadataBase: new URL('https://launchpad.vercel.app'),
     openGraph: {
-        title: 'LaunchPad - Invest. Market. Grow.',
+        title: 'launchpad - Invest.Market.Grow',
         description: 'Empowering small household businesses in Hyderabad with strategic investment and marketing solutions.',
         url: 'https://launchpad.vercel.app',
         siteName: 'LaunchPad',
@@ -34,7 +34,7 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'LaunchPad - Invest. Market. Grow.',
+        title: 'LaunchPad - Invest.Market.Grow',
         description: 'Empowering small household businesses in Hyderabad with strategic investment and marketing solutions.',
     },
     robots: {

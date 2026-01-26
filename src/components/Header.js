@@ -64,8 +64,8 @@ export default function Header() {
                     <Image
                         src="/images/logo.jpg"
                         alt="LaunchPad - Invest. Market. Grow."
-                        width={160}
-                        height={60}
+                        width={50}
+                        height={50}
                         className={styles.logoImage}
                         priority
                     />

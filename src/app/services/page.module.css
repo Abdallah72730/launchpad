@@ -83,10 +83,34 @@
     padding: var(--space-4);
 }
 
-.serviceIcon {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: var(--space-4);
+.serviceIconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background: var(--color-primary-50);
+    color: var(--color-primary-600);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+}
+
+.serviceBlock:hover .serviceIconWrapper {
+    background: var(--color-primary-600);
+    color: white;
+    transform: scale(1.1);
+}
+
+.iconLg {
+    width: 36px;
+    height: 36px;
+}
+
+.iconSm {
+    width: 16px;
+    height: 16px;
 }
 
 .serviceSubtitle {
@@ -138,8 +162,6 @@
     background: var(--color-primary-100);
     color: var(--color-primary-600);
     border-radius: var(--radius-full);
-    font-size: var(--text-sm);
-    font-weight: var(--font-bold);
     flex-shrink: 0;
 }
 
@@ -162,6 +184,8 @@
 }
 
 .btnArrow {
+    width: 20px;
+    height: 20px;
     transition: transform var(--transition-fast);
 }
 
@@ -185,10 +209,25 @@
     align-items: center;
     justify-content: center;
     box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
 }
 
-.visualIcon {
-    font-size: 6rem;
+.visualIconWrapper {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-500);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.visualIconWrapper .iconLg {
+    width: 70px;
+    height: 70px;
 }
 
 /* Process Section */

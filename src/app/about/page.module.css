@@ -127,10 +127,17 @@
     max-width: 300px;
 }
 
-.storyIcon {
-    font-size: 4rem;
-    display: block;
+.storyIconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+    color: var(--color-primary-600);
     margin-bottom: var(--space-6);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .storyQuote {
@@ -158,11 +165,23 @@
     border-radius: var(--radius-2xl);
     text-align: center;
     box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
 }
 
-.missionIcon {
-    font-size: 3rem;
-    display: block;
+.missionCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.missionIconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: var(--color-primary-50);
+    color: var(--color-primary-600);
+    border-radius: var(--radius-full);
     margin-bottom: var(--space-4);
 }
 
@@ -204,10 +223,17 @@
     transform: translateY(-5px);
 }
 
-.valueIcon {
-    font-size: 2.5rem;
-    display: block;
+.valueIconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: white;
+    color: var(--color-primary-600);
+    border-radius: var(--radius-lg);
     margin-bottom: var(--space-4);
+    box-shadow: var(--shadow-sm);
 }
 
 .valueTitle {
@@ -250,13 +276,25 @@
     transform: translateY(-3px);
 }
 
-.businessIcon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: var(--space-2);
+.businessIconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: var(--color-primary-50);
+    color: var(--color-primary-600);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-3);
+}
+
+.businessCard:hover .businessIconWrapper {
+    background: var(--color-primary-600);
+    color: white;
 }
 
 .businessLabel {
+    display: block;
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
     color: var(--color-neutral-700);
@@ -304,9 +342,37 @@
     margin-bottom: var(--space-4);
 }
 
-.hyderabadEmoji {
-    font-size: 3rem;
+.hyderabadIconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
     margin-top: var(--space-8);
+    background: var(--color-neutral-50);
+    border-radius: 50%;
+    color: var(--color-primary-600);
+}
+
+/* Icon Sizes */
+.iconSm {
+    width: 16px;
+    height: 16px;
+}
+
+.iconMd {
+    width: 28px;
+    height: 28px;
+}
+
+.iconLg {
+    width: 36px;
+    height: 36px;
+}
+
+.iconXl {
+    width: 56px;
+    height: 56px;
 }
 
 /* CTA Section */

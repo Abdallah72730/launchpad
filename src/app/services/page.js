@@ -6,6 +6,14 @@
 
 import Link from 'next/link';
 import styles from './page.module.css';
+import {
+    InvestmentIcon,
+    MarketingIcon,
+    ConsultingIcon,
+    TargetIcon,
+    CheckIcon,
+    ArrowRightIcon
+} from '../../components/Icons';
 
 // SEO metadata for services page
 export const metadata = {
@@ -17,7 +25,7 @@ export const metadata = {
 const services = [
     {
         id: 'investment',
-        icon: '💰',
+        icon: <InvestmentIcon className={styles.iconLg} />,
         title: 'Investment Solutions',
         subtitle: 'Fuel Your Growth',
         description: 'Access strategic funding designed specifically for home-based businesses. We believe in your potential and invest in your success.',
@@ -32,7 +40,7 @@ const services = [
     },
     {
         id: 'marketing',
-        icon: '📈',
+        icon: <MarketingIcon className={styles.iconLg} />,
         title: 'Marketing & Growth',
         subtitle: 'Reach More Customers',
         description: 'Our expert marketing team helps you build brand awareness, attract customers, and grow sales across Hyderabad and beyond.',
@@ -47,7 +55,7 @@ const services = [
     },
     {
         id: 'consulting',
-        icon: '🤝',
+        icon: <ConsultingIcon className={styles.iconLg} />,
         title: 'Business Consulting',
         subtitle: 'Expert Guidance',
         description: 'Get personalized advice from experienced business mentors who understand the unique challenges of running a home-based enterprise.',
@@ -62,7 +70,7 @@ const services = [
     },
     {
         id: 'acquisition',
-        icon: '🎯',
+        icon: <TargetIcon className={styles.iconLg} />,
         title: 'Client Acquisition',
         subtitle: 'Connect with Buyers',
         description: 'We actively connect your products with interested buyers, helping you build a steady stream of customers and repeat business.',
@@ -128,7 +136,9 @@ export default function ServicesPage() {
                             className={`${styles.serviceBlock} ${index % 2 === 1 ? styles.reversed : ''}`}
                         >
                             <div className={styles.serviceContent}>
-                                <span className={styles.serviceIcon}>{service.icon}</span>
+                                <div className={styles.serviceIconWrapper}>
+                                    {service.icon}
+                                </div>
                                 <span className={styles.serviceSubtitle}>{service.subtitle}</span>
                                 <h2 className={styles.serviceTitle}>{service.title}</h2>
                                 <p className={styles.serviceDescription}>{service.description}</p>
@@ -136,7 +146,9 @@ export default function ServicesPage() {
                                 <ul className={styles.featureList}>
                                     {service.features.map((feature, i) => (
                                         <li key={i} className={styles.featureItem}>
-                                            <span className={styles.checkIcon}>✓</span>
+                                            <span className={styles.checkIcon}>
+                                                <CheckIcon className={styles.iconSm} />
+                                            </span>
                                             {feature}
                                         </li>
                                     ))}
@@ -144,13 +156,15 @@ export default function ServicesPage() {
 
                                 <Link href="/contact" className={styles.serviceBtn}>
                                     {service.cta}
-                                    <span className={styles.btnArrow}>→</span>
+                                    <ArrowRightIcon className={styles.btnArrow} />
                                 </Link>
                             </div>
 
                             <div className={styles.serviceVisual}>
                                 <div className={styles.visualCard}>
-                                    <span className={styles.visualIcon}>{service.icon}</span>
+                                    <div className={styles.visualIconWrapper}>
+                                        {service.icon}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -193,7 +207,7 @@ export default function ServicesPage() {
                         </p>
                         <Link href="/contact" className={styles.ctaButton}>
                             Get Free Consultation
-                            <span className={styles.ctaArrow}>→</span>
+                            <ArrowRightIcon className={styles.ctaArrow} />
                         </Link>
                     </div>
                 </div>

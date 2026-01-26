@@ -33,6 +33,7 @@
     bottom: 0;
     overflow: hidden;
     pointer-events: none;
+    z-index: 0;
 }
 
 .heroBgShape1,
@@ -100,6 +101,27 @@
     text-align: center;
     max-width: 900px;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logoContainer {
+    width: 120px;
+    height: 120px;
+    margin-bottom: var(--space-8);
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    background: white;
+    padding: 2px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    animation: fadeInDown 0.8s ease forwards;
+}
+
+.heroLogo {
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .heroBadge {
@@ -112,7 +134,8 @@
     font-weight: var(--font-medium);
     color: white;
     margin-bottom: var(--space-6);
-    animation: fadeInDown 0.8s ease forwards;
+    animation: fadeInDown 0.8s ease 0.1s forwards;
+    opacity: 0;
 }
 
 .heroTitle {
@@ -171,11 +194,18 @@
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
-.btnArrow {
+.btnArrow,
+.btnIcon {
     transition: transform var(--transition-fast);
 }
 
-.primaryBtn:hover .btnArrow {
+.btnIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.primaryBtn:hover .btnArrow,
+.primaryBtn:hover .btnIcon {
     transform: translateX(4px);
 }
 
@@ -219,7 +249,7 @@
 
 .statsGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-8);
     background: white;
     border-radius: var(--radius-2xl);
@@ -313,10 +343,27 @@
     box-shadow: var(--shadow-xl);
 }
 
-.serviceIcon {
-    display: inline-block;
-    font-size: 3.5rem;
-    margin-bottom: var(--space-4);
+.serviceIconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: var(--color-primary-50);
+    color: var(--color-primary-600);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-6);
+    transition: all var(--transition-fast);
+}
+
+.serviceCard:hover .serviceIconWrapper {
+    background: var(--color-primary-600);
+    color: white;
+}
+
+.iconMd {
+    width: 32px;
+    height: 32px;
 }
 
 .serviceTitle {
@@ -341,6 +388,11 @@
     font-weight: var(--font-semibold);
     text-decoration: none;
     transition: gap var(--transition-fast);
+}
+
+.linkIcon {
+    width: 16px;
+    height: 16px;
 }
 
 .serviceLink:hover {
@@ -391,10 +443,22 @@
     transform: translateY(-5px);
 }
 
-.whyIcon {
-    font-size: 2rem;
-    margin-bottom: var(--space-3);
-    display: block;
+.whyIconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: white;
+    color: var(--color-primary-600);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-4);
+    box-shadow: var(--shadow-sm);
+}
+
+.iconSm {
+    width: 24px;
+    height: 24px;
 }
 
 .whyCardTitle {

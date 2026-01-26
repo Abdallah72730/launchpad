@@ -5,6 +5,26 @@
 
 import Link from 'next/link';
 import styles from './page.module.css';
+import {
+    HandshakeIcon,
+    SproutIcon,
+    CommunityIcon,
+    BulbIcon,
+    JarIcon,
+    UtensilsIcon,
+    ShirtIcon,
+    GemIcon,
+    PaletteIcon,
+    CakeIcon,
+    ScissorsIcon,
+    LeafIcon,
+    RocketIcon,
+    TargetIcon,
+    TelescopeIcon,
+    CityIcon,
+    BuildingIcon,
+    ArrowRightIcon
+} from '../../components/Icons';
 
 // SEO metadata
 export const metadata = {
@@ -15,22 +35,22 @@ export const metadata = {
 // Company values
 const values = [
     {
-        icon: '🤝',
+        icon: <HandshakeIcon className={styles.iconLg} />,
         title: 'Trust',
         description: 'We build lasting relationships based on transparency, honesty, and mutual respect.'
     },
     {
-        icon: '🌱',
+        icon: <SproutIcon className={styles.iconLg} />,
         title: 'Growth',
         description: 'We\'re committed to helping every partner business reach its full potential.'
     },
     {
-        icon: '🏘️',
+        icon: <CommunityIcon className={styles.iconLg} />,
         title: 'Community',
         description: 'We believe in strengthening Hyderabad\'s local business ecosystem together.'
     },
     {
-        icon: '💡',
+        icon: <BulbIcon className={styles.iconLg} />,
         title: 'Innovation',
         description: 'We embrace creative solutions to help small businesses compete and win.'
     }
@@ -38,14 +58,14 @@ const values = [
 
 // What we support
 const businessTypes = [
-    { icon: '🥒', label: 'Pickles & Preserves' },
-    { icon: '🍱', label: 'Tiffin Services' },
-    { icon: '👗', label: 'Boutique Clothing' },
-    { icon: '💍', label: 'Handmade Jewelry' },
-    { icon: '🎨', label: 'Art & Handicrafts' },
-    { icon: '🍰', label: 'Home Bakers' },
-    { icon: '🧵', label: 'Tailoring & Fashion' },
-    { icon: '🌿', label: 'Organic Products' }
+    { icon: <JarIcon className={styles.iconMd} />, label: 'Pickles & Preserves' },
+    { icon: <UtensilsIcon className={styles.iconMd} />, label: 'Tiffin Services' },
+    { icon: <ShirtIcon className={styles.iconMd} />, label: 'Boutique Clothing' },
+    { icon: <GemIcon className={styles.iconMd} />, label: 'Handmade Jewelry' },
+    { icon: <PaletteIcon className={styles.iconMd} />, label: 'Art & Handicrafts' },
+    { icon: <CakeIcon className={styles.iconMd} />, label: 'Home Bakers' },
+    { icon: <ScissorsIcon className={styles.iconMd} />, label: 'Tailoring & Fashion' },
+    { icon: <LeafIcon className={styles.iconMd} />, label: 'Organic Products' }
 ];
 
 export default function AboutPage() {
@@ -93,7 +113,9 @@ export default function AboutPage() {
                         </div>
                         <div className={styles.storyVisual}>
                             <div className={styles.storyCard}>
-                                <span className={styles.storyIcon}>🚀</span>
+                                <div className={styles.storyIconWrapper}>
+                                    <RocketIcon className={styles.iconXl} />
+                                </div>
                                 <p className={styles.storyQuote}>
                                     "Every great business starts with a dream. We're here to help you make that dream a reality."
                                 </p>
@@ -108,7 +130,9 @@ export default function AboutPage() {
                 <div className={styles.container}>
                     <div className={styles.missionGrid}>
                         <div className={styles.missionCard}>
-                            <span className={styles.missionIcon}>🎯</span>
+                            <div className={styles.missionIconWrapper}>
+                                <TargetIcon className={styles.iconLg} />
+                            </div>
                             <h3 className={styles.missionTitle}>Our Mission</h3>
                             <p className={styles.missionText}>
                                 To empower 1000+ home-based entrepreneurs in Hyderabad with the capital,
@@ -117,7 +141,9 @@ export default function AboutPage() {
                             </p>
                         </div>
                         <div className={styles.missionCard}>
-                            <span className={styles.missionIcon}>🔭</span>
+                            <div className={styles.missionIconWrapper}>
+                                <TelescopeIcon className={styles.iconLg} />
+                            </div>
                             <h3 className={styles.missionTitle}>Our Vision</h3>
                             <p className={styles.missionText}>
                                 To create a thriving ecosystem where home-based businesses are recognized,
@@ -139,7 +165,9 @@ export default function AboutPage() {
                     <div className={styles.valuesGrid}>
                         {values.map((value, index) => (
                             <div key={index} className={styles.valueCard}>
-                                <span className={styles.valueIcon}>{value.icon}</span>
+                                <div className={styles.valueIconWrapper}>
+                                    {value.icon}
+                                </div>
                                 <h3 className={styles.valueTitle}>{value.title}</h3>
                                 <p className={styles.valueDescription}>{value.description}</p>
                             </div>
@@ -162,7 +190,9 @@ export default function AboutPage() {
                     <div className={styles.businessGrid}>
                         {businessTypes.map((business, index) => (
                             <div key={index} className={styles.businessCard}>
-                                <span className={styles.businessIcon}>{business.icon}</span>
+                                <div className={styles.businessIconWrapper}>
+                                    {business.icon}
+                                </div>
                                 <span className={styles.businessLabel}>{business.label}</span>
                             </div>
                         ))}
@@ -192,7 +222,9 @@ export default function AboutPage() {
                             Our local expertise means we can help you navigate everything from
                             sourcing materials to finding the best local markets and events for your products.
                         </p>
-                        <div className={styles.hyderabadEmoji}>🌆 🇮🇳</div>
+                        <div className={styles.hyderabadIconWrapper}>
+                            <BuildingIcon className={styles.iconXl} />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -210,7 +242,7 @@ export default function AboutPage() {
                         </p>
                         <Link href="/contact" className={styles.ctaButton}>
                             Start Your Journey
-                            <span className={styles.ctaArrow}>→</span>
+                            <ArrowRightIcon className={styles.ctaArrow} />
                         </Link>
                     </div>
                 </div>
