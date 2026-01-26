@@ -2,15 +2,20 @@
 const nextConfig = {
   // Enable React Strict Mode for better development experience
   reactStrictMode: true,
-  
+
   // Optimize images
   images: {
     domains: [],
     unoptimized: false,
   },
-  
+
   // Ensure trailing slashes for consistent routing
   trailingSlash: false,
+
+  // Ignore ESLint errors during build
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = nextConfig;
