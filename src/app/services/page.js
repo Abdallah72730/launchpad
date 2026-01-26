@@ -30,7 +30,7 @@ const services = [
         subtitle: 'Fuel Your Growth',
         description: 'Access strategic funding designed specifically for home-based businesses. We believe in your potential and invest in your success.',
         features: [
-            'Flexible funding from ₹50,000 to ₹10,00,000',
+            'Flexible funding from ₹10,000 to ₹1,00,000',
             'No collateral required for eligible businesses',
             'Revenue-based repayment options',
             'Quick approval within 7 days',
