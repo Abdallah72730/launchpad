@@ -28,7 +28,7 @@ const businessTypes = [
 const faqs = [
     {
         question: 'How much funding can I get?',
-        answer: 'We offer flexible funding ranging from ₹10,000 to ₹1,00,000 depending on your business needs and growth potential.'
+        answer: 'We offer flexible funding ranging from ₹10,000 to ₹5,00,000 depending on your business needs and growth potential.'
     },
     {
         question: 'Do I need collateral?',
