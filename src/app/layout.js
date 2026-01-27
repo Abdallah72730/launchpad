@@ -6,6 +6,7 @@
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Analytics } from '@vercel/analytics/react';
 
 // Metadata for SEO - optimized for Hyderabad market
 export const metadata = {
@@ -74,6 +75,8 @@ export default function RootLayout({ children }) {
                 <main id="main-content">
                     {children}
                 </main>
+
+                <Analytics />
 
                 <Footer />
             </body>
