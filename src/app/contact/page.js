@@ -1,16 +1,14 @@
 /**
- * Contact Page
- * Working contact form with Web3Forms integration
- * Includes form validation and success/error states
+ * Contact Page - IMPROVED VERSION
+ * Added bot prevention with honeypot field and timing checks
  */
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import { EmailIcon, LocationIcon, ClockIcon, CheckIcon, AlertIcon } from '../../components/Icons';
 
-// Business types for dropdown
 const businessTypes = [
     'Pickles & Preserves',
     'Tiffin & Catering',
@@ -24,7 +22,6 @@ const businessTypes = [
     'Other'
 ];
 
-// FAQ items
 const faqs = [
     {
         question: 'How much funding can I get?',
@@ -51,9 +48,11 @@ export default function ContactPage() {
         phone: '',
         businessName: '',
         businessType: '',
-        message: ''
+        message: '',
+        honeypot: '' // Bot trap field
     });
 
+    const [formStartTime, setFormStartTime] = useState(null);
     const [status, setStatus] = useState({
         submitting: false,
         submitted: false,
@@ -61,6 +60,11 @@ export default function ContactPage() {
     });
 
     const [expandedFaq, setExpandedFaq] = useState(null);
+
+    // Track when user starts interacting with form
+    useEffect(() => {
+        setFormStartTime(Date.now());
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -75,12 +79,18 @@ export default function ContactPage() {
         setStatus({ submitting: true, submitted: false, error: null });
 
         try {
+            // Include timing information for bot detection
+            const submissionData = {
+                ...formData,
+                formStartTime: formStartTime
+            };
+
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(submissionData),
             });
 
             const data = await response.json();
@@ -93,8 +103,11 @@ export default function ContactPage() {
                     phone: '',
                     businessName: '',
                     businessType: '',
-                    message: ''
+                    message: '',
+                    honeypot: ''
                 });
+                // Reset timer
+                setFormStartTime(Date.now());
             } else {
                 setStatus({
                     submitting: false,
@@ -106,7 +119,7 @@ export default function ContactPage() {
             setStatus({
                 submitting: false,
                 submitted: false,
-                error: 'Network error: ' + error.message
+                error: 'Network error. Please check your connection and try again.'
             });
         }
     };
@@ -158,6 +171,20 @@ export default function ContactPage() {
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} className={styles.form}>
+                                    {/* Honeypot field - hidden from real users, visible to bots */}
+                                    <div style={{ position: 'absolute', left: '-9999px' }}>
+                                        <label htmlFor="honeypot">Leave this field empty</label>
+                                        <input
+                                            type="text"
+                                            id="honeypot"
+                                            name="honeypot"
+                                            value={formData.honeypot}
+                                            onChange={handleChange}
+                                            tabIndex="-1"
+                                            autoComplete="off"
+                                        />
+                                    </div>
+
                                     <div className={styles.formRow}>
                                         <div className={styles.formGroup}>
                                             <label htmlFor="name" className={styles.label}>Your Name *</label>
@@ -170,10 +197,11 @@ export default function ContactPage() {
                                                 required
                                                 className={styles.input}
                                                 placeholder="Enter your full name"
+                                                maxLength="100"
                                             />
                                         </div>
                                         <div className={styles.formGroup}>
-                                            <label htmlFor="email" className={styles.label}>Email Address *</label>
+                                            <label htmlFor="email" className={styles.label}>Email *</label>
                                             <input
                                                 type="email"
                                                 id="email"
@@ -182,7 +210,8 @@ export default function ContactPage() {
                                                 onChange={handleChange}
                                                 required
                                                 className={styles.input}
-                                                placeholder="your@email.com"
+                                                placeholder="your.email@example.com"
+                                                maxLength="100"
                                             />
                                         </div>
                                     </div>
@@ -198,6 +227,7 @@ export default function ContactPage() {
                                                 onChange={handleChange}
                                                 className={styles.input}
                                                 placeholder="+91 XXXXX XXXXX"
+                                                maxLength="20"
                                             />
                                         </div>
                                         <div className={styles.formGroup}>
@@ -211,6 +241,7 @@ export default function ContactPage() {
                                                 required
                                                 className={styles.input}
                                                 placeholder="Your business name"
+                                                maxLength="100"
                                             />
                                         </div>
                                     </div>
@@ -243,6 +274,7 @@ export default function ContactPage() {
                                             className={styles.textarea}
                                             rows={5}
                                             placeholder="Describe your business, current challenges, and how you'd like us to help..."
+                                            maxLength="1000"
                                         />
                                     </div>
 
@@ -299,7 +331,7 @@ export default function ContactPage() {
                                     </span>
                                     <div>
                                         <p className={styles.infoLabel}>Location</p>
-                                        <p className={styles.infoValue}>Hyderabad, India</p>
+                                        <p className={styles.infoValue}>Hyderabad, Telangana, India</p>
                                     </div>
                                 </div>
 
@@ -345,15 +377,18 @@ export default function ContactPage() {
                                 <button
                                     className={styles.faqQuestion}
                                     onClick={() => toggleFaq(index)}
+                                    aria-expanded={expandedFaq === index}
                                 >
                                     {faq.question}
                                     <span className={styles.faqIcon}>
                                         {expandedFaq === index ? '−' : '+'}
                                     </span>
                                 </button>
-                                <div className={styles.faqAnswer}>
-                                    <p>{faq.answer}</p>
-                                </div>
+                                {expandedFaq === index && (
+                                    <div className={styles.faqAnswer}>
+                                        <p>{faq.answer}</p>
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>
