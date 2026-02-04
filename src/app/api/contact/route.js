@@ -5,7 +5,6 @@
  */
 
 import { NextResponse } from 'next/server';
-import { env } from '@/env';
 
 export async function POST(request) {
     try {
@@ -32,7 +31,7 @@ export async function POST(request) {
         }
 
         // Get the API key from environment variables
-        const accessKey = env.WEB3FORMS_ACCESS_KEY;
+        const accessKey = WEB3FORMS_ACCESS_KEY;
 
         if (!accessKey) {
             console.error('WEB3FORMS_ACCESS_KEY is not set');
