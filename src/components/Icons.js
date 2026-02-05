@@ -1,24 +1,37 @@
 export const InvestmentIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <circle cx="12" cy="12" r="10" />
-        <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
-        <path d="M12 18V6" />
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M8 14h8" />
+        <path d="M8 10h8" />
+        <path d="M12 18V8l-2 2" />
+        <path d="m14 10-2-2" />
+        <path d="M7 7h.01" />
+        <path d="M17 7h.01" />
     </svg>
 );
 
 export const MarketingIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="m22 2-7 20-4-9-9-4Z" />
-        <path d="M22 2 11 13" />
+        <path d="m3 11 18-5v12L3 13v-2z" />
+        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+        <line x1="22" y1="5" x2="22" y2="19" />
+        <path d="M17 15v-4" />
+        <path d="M20 13v-2" />
+        <path d="M14 17v-8" />
     </svg>
 );
 
 export const ConsultingIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        <path d="M21 17v1a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-1" />
+        <path d="M12 12v5" />
+        <path d="M12 17h4a2 2 0 0 1 2 2v2" />
+        <path d="M12 17H8a2 2 0 0 0-2 2v2" />
+        <path d="M6.58 7.9A4 4 0 1 0 7.9 3.32" />
+        <path d="M17.42 7.9A4 4 0 1 1 16.1 3.32" />
+        <circle cx="12" cy="7" r="2" />
+        <path d="m15 7 2.1-2.1" />
+        <path d="m9 7-2.1-2.1" />
     </svg>
 );
 
@@ -44,14 +57,17 @@ export const CityIcon = ({ className }) => (
 
 export const BuildingIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
-        <path d="M9 22v-4h6v4" />
-        <path d="M8 6h.01" />
-        <path d="M16 6h.01" />
-        <path d="M8 10h.01" />
-        <path d="M16 10h.01" />
-        <path d="M8 14h.01" />
-        <path d="M16 14h.01" />
+        <path d="M4 4h16" />
+        <path d="M4 4v16h16V4" />
+        <path d="M8 4v16" />
+        <path d="M16 4v16" />
+        <path d="M8 14a4 4 0 0 1 8 0v6" />
+        <path d="M4 8h4" />
+        <path d="M16 8h4" />
+        <path d="M4 12h4" />
+        <path d="M16 12h4" />
+        <path d="M12 4v3" />
+        <circle cx="12" cy="10" r="1" />
     </svg>
 );
 
@@ -64,10 +80,12 @@ export const PersonalizedIcon = ({ className }) => (
 
 export const GrowthIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M2 20h20" />
-        <path d="m16 9 6 6" />
-        <path d="M2 16c6.667-6 13.333-6 20 0" />
-        <path d="m6 16 6-6 4 4" />
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        <path d="m16 13 3-3 3 3" />
+        <path d="M19 10v4" />
     </svg>
 );
 
@@ -115,19 +133,19 @@ export const AlertIcon = ({ className }) => (
 
 export const TargetIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="6" />
-        <circle cx="12" cy="12" r="2" />
+        <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+        <path d="M21 9a2 2 0 0 0-2-2h-2" />
+        <path d="M3 9a2 2 0 0 1 2-2h2" />
+        <path d="m21 15-3-3 3-3" />
+        <path d="m3 15 3-3-3-3" />
     </svg>
 );
 
 export const HandshakeIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="m11 17 2 2a1 1 0 1 0 3-3" />
-        <path d="m11 14 11-11" />
-        <path d="m8.1 12.6 1.1-1.1a2 2 0 1 1 2.8 2.8L11 15" />
-        <path d="m5 16-2 1a2.8 2.8 0 0 0 4 4l9-9a5 5 0 0 0 0-7" />
-        <path d="m5 16 3-3" />
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="m9 12 2 2 4-4" />
     </svg>
 );
 
@@ -142,11 +160,12 @@ export const SproutIcon = ({ className }) => (
 
 export const CommunityIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M16 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" />
-        <path d="M4 16h12" />
-        <path d="M12 11h4a2 2 0 0 1 2 2v6" />
-        <path d="M20 21h-6" />
-        <path d="M4 11V7l8-4 8 4v4" />
+        <path d="M17 20v-2a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v2" />
+        <circle cx="11" cy="7" r="4" />
+        <path d="M21 15v-1a3 3 0 0 0-1.5-2.6" />
+        <path d="M17 8.5a4 4 0 0 1 0 7" />
+        <path d="M3 15v-1a3 3 0 0 1 1.5-2.6" />
+        <path d="M7 8.5a4 4 0 0 0 0 7" />
     </svg>
 );
 
@@ -241,11 +260,11 @@ export const RocketIcon = ({ className }) => (
 
 export const TelescopeIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="m10.065 12.493-6.18 3.568a2.95 2.95 0 1 1-2.953-5.114l6.18-3.568a2.95 2.95 0 1 1 2.953 5.114z" />
-        <path d="m13.7 18.79 5.289-3.054a2.95 2.95 0 1 1 2.953 5.114l-5.289 3.054a2.95 2.95 0 1 1-2.953-5.114z" />
-        <path d="m16.863 13.292 2.953 5.113" />
-        <path d="m5.018 7.315 2.953 5.113" />
-        <path d="m8.91 8.874 6.78 11.745" />
+        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+        <circle cx="12" cy="12" r="3" />
+        <path d="m12 12 4-4" />
+        <path d="m16 8-2 2" />
+        <path d="m16 8-2-2" />
     </svg>
 );
 
