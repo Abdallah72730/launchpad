@@ -1,93 +1,132 @@
-# LaunchPad - Invest.Market.Grow
+# LaunchPad — Live-Deployed Full-Stack Web Platform
 
-A professional, multi-page website for LaunchPad, a business investment and marketing company helping small household-based businesses in Hyderabad, India.
+A production-grade, multi-page business website built with **Next.js** and deployed live to Vercel. Built for LaunchPad, a small business investment and marketing company based in Hyderabad, India.
 
-## 🚀 Features
+**Live site:** [site.wwwlaunchpad.com](https://site.wwwlaunchpad.com)
 
-- **Multi-page architecture** with dedicated pages for Home, Services, About, and Contact
-- **Responsive design** optimized for mobile, tablet, and desktop
-- **Modern UI** with animations, glass-morphism effects, and premium aesthetics
-- **Secure contact form** with server-side API key handling
-- **SEO optimized** with proper meta tags for the Hyderabad market
-- **Vercel-ready** deployment configuration
+This isn't a mockup or a school exercise — it's a functioning, deployed product with a real domain, live API integrations, server-side security, and responsive design across all screen sizes.
 
-## 📁 Project Structure
+---
+
+## Technical Highlights
+
+- **Next.js App Router** — multi-page architecture with dedicated routes for Home, Services, About, and Contact
+- **Server-side API route** — contact form submissions are processed through a Next.js API route (`/api/contact`), keeping the API key off the client entirely
+- **Environment variable management** — credentials handled via `.env.local`, with `.env.example` provided for clean contributor setup
+- **Responsive design** — mobile, tablet, and desktop layouts tested across breakpoints
+- **Modern UI** — CSS animations, glassmorphism effects, smooth transitions
+- **SEO optimization** — proper meta tags and page titles configured for the target market
+- **ESLint** — linting configured and passing
+- **Vercel deployment** — CI/CD via GitHub integration; pushes to main deploy automatically
+
+---
+
+## Features
+
+- Home page with hero section, value proposition, and CTAs
+- Services page outlining offerings
+- About page with company background
+- Contact page with a working form (submissions delivered via Web3Forms API)
+- Shared Header and Footer components across all pages
+- CSS design system in `globals.css` for consistent styling
+
+---
+
+## Project Structure
 
 ```
-launchpad-/
+launchpad/
 ├── src/
 │   ├── app/
-│   │   ├── layout.js          # Root layout with header/footer
-│   │   ├── globals.css        # Design system & global styles
-│   │   ├── page.js            # Home page
-│   │   ├── services/          # Services page
-│   │   ├── about/             # About page
-│   │   ├── contact/           # Contact page
-│   │   └── api/contact/       # Contact form API route
+│   │   ├── layout.js           # Root layout — shared header/footer
+│   │   ├── globals.css         # Design system and global styles
+│   │   ├── page.js             # Home page
+│   │   ├── services/           # Services page
+│   │   ├── about/              # About page
+│   │   ├── contact/            # Contact page
+│   │   └── api/
+│   │       └── contact/        # Server-side API route (handles form + API key)
 │   └── components/
-│       ├── Header.js          # Navigation component
-│       └── Footer.js          # Footer component
-├── .env.local                 # API keys (not in repo)
-├── .env.example               # Environment template
-├── next.config.js             # Next.js configuration
-└── package.json               # Dependencies
+│       ├── Header.js           # Navigation component
+│       └── Footer.js           # Footer component
+├── public/images/              # Static assets
+├── .env.example                # Environment variable template
+├── .eslintrc.json              # Linting configuration
+├── next.config.js              # Next.js configuration
+└── package.json
 ```
 
-## 🛠️ Getting Started
+---
+
+## Tech Stack
+
+- **Next.js 14** (App Router)
+- **React** — component-based UI
+- **JavaScript (ES6+)**
+- **CSS** — custom design system, no UI library
+- **Web3Forms API** — contact form email delivery
+- **Vercel** — hosting and deployment
+- **Git/GitHub** — version control
+
+---
+
+## Running Locally
 
 ### Prerequisites
-- Node.js 18+ installed
+- Node.js 18+
 - npm or yarn
 
-### Installation
+### Setup
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-2. Set up environment variables:
-   ```bash
-   cp .env.example .env.local
-   ```
-   Then edit `.env.local` with your Web3Forms API key.
-
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 🚢 Deployment (Vercel)
-
-### Option 1: Vercel CLI
 ```bash
-npm install -g vercel
-vercel
+# Clone the repo
+git clone https://github.com/Abdallah72730/launchpad.git
+cd launchpad
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local — add your Web3Forms API key
+
+# Start the dev server
+npm run dev
 ```
 
-### Option 2: GitHub Integration
-1. Push your code to GitHub
-2. Import the repository in Vercel
-3. Add `WEB3FORMS_ACCESS_KEY` environment variable in Vercel dashboard
-4. Deploy!
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Environment Variables
-Set these in your Vercel project settings:
-- `WEB3FORMS_ACCESS_KEY`: Your Web3Forms access key
+### Build for Production
 
-## 📧 Contact Form
+```bash
+npm run build
+npm start
+```
 
-The contact form uses [Web3Forms](https://web3forms.com/) for email delivery. The API key is stored securely in environment variables and accessed only through a server-side API route, never exposed to the client.
+---
 
-## 🎨 Design
+## Deployment
 
-- **Primary Color**: Red (#DC2626)
-- **Accent Color**: Gold/Amber for premium feel
-- **Typography**: Inter (Google Fonts)
-- **Animations**: Subtle fade-ins and hover effects
+Deployed via Vercel with GitHub integration. Pushing to `main` triggers an automatic redeploy.
 
-## 📝 License
+To deploy your own instance:
+1. Fork this repo
+2. Import it into [Vercel](https://vercel.com)
+3. Add `WEB3FORMS_ACCESS_KEY` in Vercel's environment variable settings
+4. Deploy
 
-© 2026 LaunchPad. All rights reserved.
+---
+
+## What I Learned
+
+- Building a full multi-page app with Next.js App Router from scratch
+- Writing server-side API routes to handle form submissions without exposing credentials
+- Managing environment variables properly across local dev and production
+- Deploying a real app with a custom domain and CI/CD pipeline
+- Designing a CSS system from scratch without relying on a component library
+
+---
+
+## Author
+
+**Abdallah Najmudin Syed** — Computer Programming Student, Red Deer Polytechnic  
